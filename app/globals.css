@@ -1,26 +1,360 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #101010;
+  --foreground: #f3f0e8;
+  --muted: #858580;
+  --accent: #d8ff3e;
+  --border: rgba(255, 255, 255, 0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 7%;
+}
+
+/* Navigation */
+
+.navbar {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.nav-contact {
+  font-size: 13px;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 5px;
+}
+
+/* Hero */
+
+.hero {
+  padding: 100px 0 90px;
+}
+
+.hero-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+.hero h1 {
+  font-size: clamp(60px, 10vw, 145px);
+  line-height: 0.95;
+  letter-spacing: -8px;
+  font-weight: 700;
+}
+
+.accent {
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 65px;
+}
+
+.intro {
+  color: #b4b4ae;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 450px;
+}
+
+.hero-symbol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.symbol-ring {
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(216, 255, 62, 0.35);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  animation: rotate 20s linear infinite;
+}
+
+.symbol-core {
+  width: 65px;
+  height: 65px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(216, 255, 62, 0.2);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 45px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  background: var(--accent);
+  color: #101010;
+  padding: 17px 24px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+}
+
+.secondary-button {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Ticker */
+
+.ticker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.ticker span:nth-child(even) {
+  color: var(--accent);
+}
+
+/* About and Projects */
+
+.about-section,
+.projects-section {
+  padding: 130px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.about-section h2,
+.projects-section h2 {
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  letter-spacing: -4px;
+  margin-top: 40px;
+}
+
+.about-section h2 span {
+  color: var(--muted);
+}
+
+.about-section p,
+.projects-section p {
+  color: var(--muted);
+  max-width: 500px;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+/* Footer */
+
+.footer {
+  padding: 100px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer h2 {
+  font-size: clamp(35px, 5vw, 65px);
+  letter-spacing: -3px;
+  margin: 30px 0;
+}
+
+.footer > div:first-child > a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 5px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.copyright {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 25px;
+  margin-top: 60px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 0 6%;
+  }
+
+  .navbar {
+    height: 75px;
+  }
+
+  .nav-status {
+    display: none;
+  }
+
+  .hero {
+    padding: 75px 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 12vw, 90px);
+    letter-spacing: -4px;
+  }
+
+  .hero-bottom {
+    margin-top: 40px;
+  }
+
+  .hero-symbol {
+    display: none;
+  }
+
+  .ticker {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 9px;
+  }
+
+  .about-section,
+  .projects-section {
+    padding: 85px 0;
+  }
+
+  .about-section h2,
+  .projects-section h2 {
+    letter-spacing: -2px;
+  }
+
+  .footer {
+    padding-top: 75px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .copyright {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }

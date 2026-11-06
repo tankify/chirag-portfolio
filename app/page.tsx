@@ -1,69 +1,125 @@
-import Image from "next/image";
+
+import Link from "next/link";
+
+const links = [
+  { label: "GitHub", href: "https://github.com/" },
+  { label: "LinkedIn", href: "https://linkedin.com/" },
+  { label: "Email", href: "mailto:your-email@example.com" },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="portfolio">
+      <nav className="navbar">
+        <Link href="/" className="logo">
+          CT<span>.</span>
+        </Link>
+
+        <span className="nav-status">
+          <span className="status-dot" />
+          Available for opportunities
+        </span>
+
+        <a href="#contact" className="nav-contact">
+          Let's connect ↗
+        </a>
+      </nav>
+
+      <section className="hero">
+        <div className="hero-label">
+          <span>SOFTWARE ENGINEER</span>
+          <span>BASED IN INDIA</span>
+        </div>
+
+        <h1>
+          Building things
+          <br />
+          that <span className="accent">matter.</span>
+        </h1>
+
+        <div className="hero-bottom">
+          <p className="intro">
+            Hi, I'm Chirag.
+            <br />
+            I build software, explore AI, and turn
+            complex problems into elegant solutions.
           </p>
+
+          <div className="hero-symbol" aria-hidden="true">
+            <span>01</span>
+            <div className="symbol-ring">
+              <div className="symbol-core" />
+            </div>
+            <span>ENGINEERING / CREATIVITY</span>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+
+        <div className="hero-actions">
+          <a href="#projects" className="primary-button">
+            Explore my work <span>↘</span>
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+
+          <a href="#about" className="secondary-button">
+            More about me ↗
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="ticker" aria-label="Areas of interest">
+        <span>SOFTWARE ENGINEERING</span>
+        <span>✳</span>
+        <span>ARTIFICIAL INTELLIGENCE</span>
+        <span>✳</span>
+        <span>SYSTEM DESIGN</span>
+        <span>✳</span>
+      </section>
+
+      <section id="about" className="about-section">
+        <span className="section-label">01 / ABOUT</span>
+        <h2>
+          Curious by nature.
+          <br />
+          <span>Engineer by choice.</span>
+        </h2>
+        <p>
+          I enjoy building reliable systems, solving challenging
+          engineering problems, and exploring the intersection
+          of software and artificial intelligence.
+        </p>
+      </section>
+
+      <section id="projects" className="projects-section">
+        <span className="section-label">02 / SELECTED WORK</span>
+        <h2>Things I've built.</h2>
+        <p>Interesting problems deserve thoughtful solutions.</p>
+      </section>
+
+      <footer id="contact" className="footer">
+        <div>
+          <span className="section-label">03 / CONTACT</span>
+          <h2>Have something<br />interesting in mind?</h2>
+          <a href="mailto:your-email@example.com">
+            Let's talk ↗
+          </a>
+        </div>
+
+        <div className="footer-links">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
+              {link.label} ↗
+            </a>
+          ))}
+        </div>
+
+        <p className="copyright">
+          © 2026 Chirag Tank
+        </p>
+      </footer>
+    </main>
   );
 }
