@@ -1,10 +1,20 @@
 
 import Link from "next/link";
+import About from "@/components/About";
 
 const links = [
-  { label: "GitHub", href: "https://github.com/" },
-  { label: "LinkedIn", href: "https://linkedin.com/" },
-  { label: "Email", href: "mailto:your-email@example.com" },
+  {
+    label: "GitHub",
+    href: "https://github.com/ChiragT002",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/chirag-tank-a64072205/",
+  },
+  {
+    label: "Email",
+    href: "mailto:tankchirag22@gmail.com",
+  },
 ];
 
 export default function Home() {
@@ -36,6 +46,20 @@ export default function Home() {
           <br />
           that <span className="accent">matter.</span>
         </h1>
+        
+        <About
+          content={{
+            title: "About Me",
+            experience: `I’m an engineer driven by curiosity, complexity, and the satisfaction of making things work better.
+
+        From studying Computer Science at IIT (BHU) to building software at Salesforce and Visa, my journey has been shaped by a simple idea: the best engineering turns complex problems into elegant, meaningful solutions.`,
+            description: `I enjoy designing reliable software, solving challenging problems, and exploring ideas that push the boundaries of what technology can do.
+
+        Beyond the code, I’m someone who enjoys asking questions, learning how things work under the hood, and constantly challenging myself to build better.
+
+        For me, engineering isn’t just about writing code. It’s about curiosity, thoughtful decisions, and building things that matter.`,
+          }}
+        />
 
         <div className="hero-bottom">
           <p className="intro">
