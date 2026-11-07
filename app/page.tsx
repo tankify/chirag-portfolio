@@ -5,7 +5,7 @@ import About from "@/components/About";
 const links = [
   {
     label: "GitHub",
-    href: "https://github.com/ChiragT002",
+    href: "https://github.com/tankify",
   },
   {
     label: "LinkedIn",
