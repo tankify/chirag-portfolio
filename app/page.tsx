@@ -1,6 +1,5 @@
-
+import Image from "next/image";
 import Link from "next/link";
-import About from "@/components/About";
 
 const links = [
   {
@@ -17,11 +16,13 @@ const links = [
   },
 ];
 
+const projectPlaceholders = ["PROJECT 01", "PROJECT 02", "PROJECT 03"];
+
 export default function Home() {
   return (
     <main className="portfolio">
       <nav className="navbar">
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" aria-label="Chirag Tank home">
           CT<span>.</span>
         </Link>
 
@@ -31,64 +32,55 @@ export default function Home() {
         </span>
 
         <a href="#contact" className="nav-contact">
-          Let's connect ↗
+          Let&apos;s connect ↗
         </a>
       </nav>
 
       <section className="hero">
-        <div className="hero-label">
-          <span>SOFTWARE ENGINEER</span>
-          <span>BASED IN INDIA</span>
-        </div>
+        <div className="hero-copy">
+          <div className="hero-label">
+            <span>SOFTWARE ENGINEER</span>
+            <span>BASED IN INDIA</span>
+          </div>
 
-        <h1>
-          Building things
-          <br />
-          that <span className="accent">matter.</span>
-        </h1>
-        
-        <About
-          content={{
-            title: "About Me",
-            experience: `I’m an engineer driven by curiosity, complexity, and the satisfaction of making things work better.
-
-        From studying Computer Science at IIT (BHU) to building software at Salesforce and Visa, my journey has been shaped by a simple idea: the best engineering turns complex problems into elegant, meaningful solutions.`,
-            description: `I enjoy designing reliable software, solving challenging problems, and exploring ideas that push the boundaries of what technology can do.
-
-        Beyond the code, I’m someone who enjoys asking questions, learning how things work under the hood, and constantly challenging myself to build better.
-
-        For me, engineering isn’t just about writing code. It’s about curiosity, thoughtful decisions, and building things that matter.`,
-          }}
-        />
-        <Link href="/about" className="about-more-link">
-          More about me ↗
-        </Link>
-
-        <div className="hero-bottom">
-          <p className="intro">
-            Hi, I'm Chirag.
+          <h1>
+            Building things
             <br />
-            I build software, explore AI, and turn
-            complex problems into elegant solutions.
+            that <span className="accent">matter.</span>
+          </h1>
+
+          <p className="intro">
+            Hi, I&apos;m Chirag. I build software, explore AI, and turn complex
+            problems into elegant solutions.
           </p>
 
-          <div className="hero-symbol" aria-hidden="true">
-            <span>01</span>
-            <div className="symbol-ring">
-              <div className="symbol-core" />
-            </div>
-            <span>ENGINEERING / CREATIVITY</span>
+          <div className="hero-actions">
+            <a href="#projects" className="primary-button">
+              Explore my work <span>↘</span>
+            </a>
+
+            <Link href="/about" className="secondary-button">
+              More about me ↗
+            </Link>
           </div>
         </div>
 
-        <div className="hero-actions">
-          <a href="#projects" className="primary-button">
-            Explore my work <span>↘</span>
-          </a>
-
-          <a href="#about" className="secondary-button">
-            More about me ↗
-          </a>
+        <div className="hero-portrait">
+          <div className="hero-portrait-frame">
+            <Image
+              src="/chirag-portrait.png"
+              alt="Portrait of Chirag Tank"
+              fill
+              priority
+              sizes="(max-width: 700px) 90vw, 38vw"
+              className="hero-portrait-image"
+            />
+            <div className="hero-portrait-overlay">
+              <span>CHIRAG TANK</span>
+              <p>SOFTWARE ENGINEER</p>
+            </div>
+          </div>
+          <p className="hero-portrait-caption">BUILDING WHAT COMES NEXT</p>
         </div>
       </section>
 
@@ -98,36 +90,57 @@ export default function Home() {
         <span>ARTIFICIAL INTELLIGENCE</span>
         <span>✳</span>
         <span>SYSTEM DESIGN</span>
-        <span>✳</span>
       </section>
 
       <section id="about" className="about-section">
-        <span className="section-label">01 / ABOUT</span>
-        <h2>
-          Curious by nature.
-          <br />
-          <span>Engineer by choice.</span>
-        </h2>
+        <div className="about-heading">
+          <span className="section-label">01 / ABOUT</span>
+          <h2>
+            Curious by nature.
+            <br />
+            <span>Engineer by choice.</span>
+          </h2>
+        </div>
         <p>
-          I enjoy building reliable systems, solving challenging
-          engineering problems, and exploring the intersection
-          of software and artificial intelligence.
+          I enjoy building reliable systems, solving challenging engineering
+          problems, and exploring the intersection of software and artificial
+          intelligence.
         </p>
       </section>
 
       <section id="projects" className="projects-section">
         <span className="section-label">02 / SELECTED WORK</span>
-        <h2>Things I've built.</h2>
-        <p>Interesting problems deserve thoughtful solutions.</p>
+        <h2>Things I&apos;ve built.</h2>
+        <p className="projects-intro">
+          Interesting problems deserve thoughtful solutions.
+        </p>
+
+        <div className="project-placeholders" aria-label="Project previews">
+          {projectPlaceholders.map((project, index) => (
+            <article className={`project-preview project-preview-${index + 1}`} key={project}>
+              <div className="project-art" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="project-preview-label">
+                <span>{project}</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <footer id="contact" className="footer">
-        <div>
+        <div className="footer-message">
           <span className="section-label">03 / CONTACT</span>
-          <h2>Have something<br />interesting in mind?</h2>
-          <a href="mailto:your-email@example.com">
-            Let's talk ↗
-          </a>
+          <h2>
+            Have something
+            <br />
+            interesting in mind?
+          </h2>
+          <a href="mailto:tankchirag22@gmail.com">Let&apos;s talk ↗</a>
         </div>
 
         <div className="footer-links">
@@ -143,9 +156,7 @@ export default function Home() {
           ))}
         </div>
 
-        <p className="copyright">
-          © 2026 Chirag Tank
-        </p>
+        <p className="copyright">© 2026 Chirag Tank</p>
       </footer>
     </main>
   );
