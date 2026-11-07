@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 import Link from "next/link";
 
 const journey = [
@@ -83,17 +83,29 @@ export default function AboutPage() {
           </div>
         </div>
 
+        
         <div className="portrait-area">
-          <div className="portrait-placeholder">
-            <span>CT.</span>
-            <p>Your portrait goes here</p>
-          </div>
+        <div className="portrait-frame">
+            <Image
+            src="/chirag-portrait.png"
+            alt="Chirag Tank, software engineer"
+            fill
+            priority
+            className="portrait-image"
+            sizes="(max-width: 600px) 90vw, 40vw"
+            />
 
-          <div className="portrait-caption">
-            CHIRAG TANK
-            <span>SOFTWARE ENGINEER</span>
-          </div>
+            <div className="portrait-overlay">
+            <span>CHIRAG TANK</span>
+            <p>SOFTWARE ENGINEER</p>
+            </div>
         </div>
+
+        <div className="portrait-caption">
+            BUILDING WHAT COMES NEXT
+        </div>
+        </div>
+
 
         <div className="engineering-card">
           <h2>ENGINEERING DNA</h2>
