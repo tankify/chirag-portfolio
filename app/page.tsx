@@ -60,6 +60,9 @@ export default function Home() {
         For me, engineering isn’t just about writing code. It’s about curiosity, thoughtful decisions, and building things that matter.`,
           }}
         />
+        <Link href="/about" className="about-more-link">
+          More about me ↗
+        </Link>
 
         <div className="hero-bottom">
           <p className="intro">
