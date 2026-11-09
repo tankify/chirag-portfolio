@@ -25,19 +25,21 @@ const projectPreviews = [
 export default function Home() {
   return (
     <main className="portfolio">
-      <nav className="navbar">
-        <Link href="/" className="logo" aria-label="Chirag Tank home">
-          CT<span>.</span>
+      <nav className="about-nav" aria-label="Main navigation">
+        <Link href="/" className="about-logo" aria-label="Chirag Tank home">
+          CT.
         </Link>
 
-        <span className="nav-status">
-          <span className="status-dot" />
-          Available for opportunities
-        </span>
-
-        <a href="#contact" className="nav-contact">
-          Let&apos;s connect ↗
-        </a>
+        <div className="about-nav-links">
+          <span className="active" aria-current="page">
+            Home
+          </span>
+          <Link href="/about">About me</Link>
+          <Link href="/projects">Projects</Link>
+          <a href="#contact" className="contact-link">
+            Contact ↗
+          </a>
+        </div>
       </nav>
 
       <section className="hero">
@@ -121,11 +123,26 @@ export default function Home() {
 
         <div className="project-placeholders" aria-label="Project previews">
           {projectPreviews.map((project, index) => (
-            <article className={`project-preview project-preview-${index + 1}`} key={project}>
+            <article
+              className={`project-preview project-preview-${index + 1}`}
+              key={project}
+            >
               <div className="project-art" aria-hidden="true">
-                <span />
-                <span />
-                <span />
+                {index === 0 ? (
+                  <Image
+                    alt=""
+                    className="project-preview-image"
+                    fill
+                    sizes="(max-width: 650px) 90vw, 30vw"
+                    src="/smart-meter-project.png"
+                  />
+                ) : (
+                  <>
+                    <span />
+                    <span />
+                    <span />
+                  </>
+                )}
               </div>
               <div className="project-preview-label">
                 <span>{project}</span>

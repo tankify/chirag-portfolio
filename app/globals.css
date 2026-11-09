@@ -1034,6 +1034,19 @@ a:focus-visible {
   overflow: hidden;
 }
 
+.project-preview-image {
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.project-preview-1 .project-art::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 7, 0.05), rgba(8, 9, 7, 0.28));
+  content: "";
+  pointer-events: none;
+}
+
 .project-art span {
   position: absolute;
   display: block;
