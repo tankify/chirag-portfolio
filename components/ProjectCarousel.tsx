@@ -94,6 +94,24 @@ export default function ProjectCarousel() {
   }, []);
 
   useEffect(() => {
+    const activateHashProject = () => {
+      const targetId = window.location.hash.slice(1);
+      const targetIndex = projects.findIndex((project) => project.id === targetId);
+
+      if (targetIndex >= 0) setActiveIndex(targetIndex);
+    };
+
+    activateHashProject();
+    window.addEventListener("hashchange", activateHashProject);
+    window.addEventListener("popstate", activateHashProject);
+
+    return () => {
+      window.removeEventListener("hashchange", activateHashProject);
+      window.removeEventListener("popstate", activateHashProject);
+    };
+  }, []);
+
+  useEffect(() => {
     if (isPaused) return;
 
     const interval = window.setInterval(() => {
@@ -184,6 +202,7 @@ export default function ProjectCarousel() {
               aria-roledescription="slide"
               className={`project-slide project-slide--${position}${project.id === "edge-ai-meter" ? " project-slide--edge-ai" : ""}`}
               inert={index !== activeIndex}
+              id={project.id}
               key={project.id}
               role="group"
             >
@@ -296,10 +315,6 @@ export default function ProjectCarousel() {
             />
           ))}
         </div>
-
-        <span className="carousel-autoplay-status">
-          {isPaused ? "AUTOPLAY PAUSED" : "AUTO-ADVANCES · 6.5 SEC"}
-        </span>
 
         <span className="carousel-count">
           {String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}

@@ -1024,6 +1024,19 @@ a:focus-visible {
   border: 1px solid var(--border);
   border-radius: 15px;
   background: linear-gradient(145deg, #151515, #101010 70%);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.project-preview-link {
+  display: block;
+  min-width: 0;
+  border-radius: 15px;
+}
+
+.project-preview-link:hover .project-preview {
+  transform: translateY(-4px);
+  border-color: rgba(216, 255, 62, 0.65);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
 }
 
 .project-art {
@@ -1738,14 +1751,6 @@ a:focus-visible {
   letter-spacing: 1px;
 }
 
-.carousel-autoplay-status {
-  color: var(--accent);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
 .projects-page-footer {
   display: flex;
   justify-content: space-between;
@@ -1882,12 +1887,6 @@ a:focus-visible {
   .project-carousel-controls {
     flex-wrap: wrap;
     gap: 12px;
-  }
-
-  .carousel-autoplay-status {
-    flex-basis: 100%;
-    order: 1;
-    text-align: center;
   }
 
   .projects-page-footer {

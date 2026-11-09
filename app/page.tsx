@@ -122,34 +122,49 @@ export default function Home() {
         </p>
 
         <div className="project-placeholders" aria-label="Project previews">
-          {projectPreviews.map((project, index) => (
-            <article
-              className={`project-preview project-preview-${index + 1}`}
-              key={project}
-            >
-              <div className="project-art" aria-hidden="true">
-                {index === 0 ? (
-                  <Image
-                    alt=""
-                    className="project-preview-image"
-                    fill
-                    sizes="(max-width: 650px) 90vw, 30vw"
-                    src="/smart-meter-project.png"
-                  />
-                ) : (
-                  <>
-                    <span />
-                    <span />
-                    <span />
-                  </>
-                )}
-              </div>
-              <div className="project-preview-label">
-                <span>{project}</span>
-                <span aria-hidden="true">↗</span>
-              </div>
-            </article>
-          ))}
+          {projectPreviews.map((project, index) => {
+            const card = (
+              <article
+                className={`project-preview project-preview-${index + 1}`}
+                key={project}
+              >
+                <div className="project-art" aria-hidden="true">
+                  {index === 0 ? (
+                    <Image
+                      alt=""
+                      className="project-preview-image"
+                      fill
+                      sizes="(max-width: 650px) 90vw, 30vw"
+                      src="/smart-meter-project.png"
+                    />
+                  ) : (
+                    <>
+                      <span />
+                      <span />
+                      <span />
+                    </>
+                  )}
+                </div>
+                <div className="project-preview-label">
+                  <span>{project}</span>
+                  <span aria-hidden="true">↗</span>
+                </div>
+              </article>
+            );
+
+            return index === 0 ? (
+              <Link
+                aria-label="View the Edge AI Smart Meter Reading System project"
+                className="project-preview-link"
+                href="/projects#edge-ai-meter"
+                key={project}
+              >
+                {card}
+              </Link>
+            ) : (
+              card
+            );
+          })}
         </div>
         <Link href="/projects" className="projects-more-link">
           Explore all projects ↗
