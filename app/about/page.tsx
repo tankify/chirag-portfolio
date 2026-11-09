@@ -22,7 +22,7 @@ export default function AboutPage() {
         <div className="about-nav-links">
           <Link href="/">Home</Link>
           <span className="active">About me</span>
-          <Link href="/#projects">Projects</Link>
+          <Link href="/projects">Projects</Link>
           <a href="mailto:tankchirag22@gmail.com" className="contact-link">
             Contact ↗
           </a>

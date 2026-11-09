@@ -16,7 +16,11 @@ const links = [
   },
 ];
 
-const projectPlaceholders = ["PROJECT 01", "PROJECT 02", "PROJECT 03"];
+const projectPreviews = [
+  "EDGE AI / SMART METER",
+  "PROJECT 02 · COMING SOON",
+  "PROJECT 03 · COMING SOON",
+];
 
 export default function Home() {
   return (
@@ -116,7 +120,7 @@ export default function Home() {
         </p>
 
         <div className="project-placeholders" aria-label="Project previews">
-          {projectPlaceholders.map((project, index) => (
+          {projectPreviews.map((project, index) => (
             <article className={`project-preview project-preview-${index + 1}`} key={project}>
               <div className="project-art" aria-hidden="true">
                 <span />
@@ -130,6 +134,9 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <Link href="/projects" className="projects-more-link">
+          Explore all projects ↗
+        </Link>
       </section>
 
       <footer id="contact" className="footer">
