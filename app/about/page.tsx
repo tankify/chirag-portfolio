@@ -1,23 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const journey = [
-  {
-    organization: "IIT (BHU), Varanasi",
-    role: "Computer Science & Engineering",
-    period: "The foundations",
-  },
-  {
-    organization: "Salesforce",
-    role: "Software Engineering",
-    period: "Building at scale",
-  },
-  {
-    organization: "Visa",
-    role: "Software Engineering",
-    period: "Building what comes next",
-  },
-];
+import JourneyTimeline from "@/components/JourneyTimeline";
 
 const engineeringDNA = [
   "System design",
@@ -68,19 +51,7 @@ export default function AboutPage() {
         <div className="journey-card">
           <h2>MY JOURNEY</h2>
 
-          <div className="timeline">
-            {journey.map((item) => (
-              <div className="timeline-item" key={item.organization}>
-                <div className="timeline-dot" />
-
-                <div>
-                  <h3>{item.organization}</h3>
-                  <p>{item.role}</p>
-                  <span>{item.period}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <JourneyTimeline />
         </div>
 
         
