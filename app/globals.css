@@ -1806,7 +1806,8 @@ a:focus-visible {
     transform: translate(10%, -50%) scale(0.9);
   }
 
-  .project-slide-card {
+  .project-slide-card,
+  .project-slide--edge-ai .project-slide-card {
     grid-template-columns: 1fr;
   }
 
@@ -1819,6 +1820,11 @@ a:focus-visible {
 
   .meter-system-diagram {
     min-height: 150px;
+  }
+
+  .meter-project-photo {
+    inset: 32px 0;
+    height: calc(100% - 64px);
   }
 
   .project-slide-content {
