@@ -216,16 +216,18 @@ export default function ProjectCarousel() {
                 >
                   {project.visual === "meter" ? (
                     <>
-                      <Image
-                        alt="ESP32-CAM mounted in front of a digital electricity meter during a project test"
-                        className="meter-project-photo"
-                        height={1660}
-                        src="/smart-meter-project.png"
-                        width={2038}
-                      />
                       <div className="meter-artwork-heading">
                         <span>EDGE COMPUTER VISION</span>
                         <span>ESP32-CAM / YOLOv7</span>
+                      </div>
+                      <div className="meter-photo-frame">
+                        <Image
+                          alt="ESP32-CAM mounted in front of a digital electricity meter during a project test"
+                          className="meter-project-photo"
+                          fill
+                          sizes="(max-width: 760px) 90vw, 45vw"
+                          src="/smart-meter-project.png"
+                        />
                       </div>
                       <div className="meter-artwork-footer">
                         <span>CAPTURE</span>

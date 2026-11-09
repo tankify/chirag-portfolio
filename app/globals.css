@@ -1404,12 +1404,14 @@ a:focus-visible {
   );
 }
 
-.meter-project-photo {
+.meter-photo-frame {
   position: absolute;
   z-index: 0;
   inset: 42px 0;
+}
+
+.meter-project-photo {
   width: 100%;
-  height: calc(100% - 84px);
   object-fit: contain;
   object-position: center;
   background: #10110e;
@@ -1822,9 +1824,13 @@ a:focus-visible {
     min-height: 150px;
   }
 
-  .meter-project-photo {
-    inset: 32px 0;
-    height: calc(100% - 64px);
+  .meter-photo-frame {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 2038 / 1660;
+    flex: 0 0 auto;
+    margin: 8px 0;
   }
 
   .project-slide-content {
