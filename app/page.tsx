@@ -11,6 +11,10 @@ const links = [
     href: "https://www.linkedin.com/in/chirag-tank-a64072205/",
   },
   {
+    label: "LeetCode",
+    href: "https://leetcode.com/u/Chirag_T002/",
+  },
+  {
     label: "Email",
     href: "mailto:tankchirag22@gmail.com",
   },
