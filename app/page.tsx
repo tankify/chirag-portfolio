@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CopyEmailButton from "@/components/CopyEmailButton";
 
 const links = [
   {
@@ -187,16 +188,23 @@ export default function Home() {
         </div>
 
         <div className="footer-links">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            >
-              {link.label} ↗
-            </a>
-          ))}
+          {links.map((link) =>
+            link.label === "Email" ? (
+              <div className="footer-email-actions" key={link.label}>
+                <a href={link.href}>Email ↗</a>
+                <CopyEmailButton email="tankchirag22@gmail.com" />
+              </div>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
+                {link.label} ↗
+              </a>
+            ),
+          )}
         </div>
 
         <p className="copyright">© 2026 Chirag Tank</p>
