@@ -297,7 +297,7 @@ export default function ProjectCarousel() {
                   <h2>{"displayTitle" in project ? project.displayTitle : project.title}</h2>
                   <p className="project-slide-summary">{project.summary}</p>
 
-                  {"highlights" in project && (
+                  {project.highlights && project.highlights.length > 0 && (
                     <ul className="project-highlights" aria-label="Project features">
                       {project.highlights.map((highlight) => (
                         <li key={highlight}>{highlight}</li>
