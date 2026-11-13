@@ -22,9 +22,24 @@ const links = [
 ];
 
 const projectPreviews = [
-  "EDGE AI / SMART METER",
-  "PROJECT 02 · COMING SOON",
-  "PROJECT 03 · COMING SOON",
+  {
+    label: "EDGE AI / SMART METER",
+    href: "/projects#edge-ai-meter",
+    accessibleName: "View the Edge AI Smart Meter Reading System project",
+    visual: "meter",
+  },
+  {
+    label: "LIFELINK / DJANGO DEMO",
+    href: "/projects#lifelink",
+    accessibleName: "View the LifeLink blood donation demo project",
+    visual: "lifelink",
+  },
+  {
+    label: "PROJECT 03 · COMING SOON",
+    visual: "placeholder",
+    href: undefined,
+    accessibleName: undefined,
+  },
 ];
 
 export default function Home() {
@@ -131,10 +146,10 @@ export default function Home() {
             const card = (
               <article
                 className={`project-preview project-preview-${index + 1}`}
-                key={project}
+                key={project.label}
               >
-                <div className="project-art" aria-hidden="true">
-                  {index === 0 ? (
+                <div className={`project-art project-art--${project.visual}`} aria-hidden="true">
+                  {project.visual === "meter" ? (
                     <Image
                       alt=""
                       className="project-preview-image"
@@ -142,6 +157,24 @@ export default function Home() {
                       sizes="(max-width: 650px) 90vw, 30vw"
                       src="/smart-meter-project.png"
                     />
+                  ) : project.visual === "lifelink" ? (
+                    <>
+                      <Image
+                        alt=""
+                        className="project-preview-image"
+                        fill
+                        sizes="(max-width: 650px) 90vw, 30vw"
+                        src="/lifelink-home.png"
+                      />
+                      <span className="project-preview-logo">
+                        <Image
+                          alt=""
+                          height={134}
+                          src="/lifelink-logo.png"
+                          width={296}
+                        />
+                      </span>
+                    </>
                   ) : (
                     <>
                       <span />
@@ -151,18 +184,18 @@ export default function Home() {
                   )}
                 </div>
                 <div className="project-preview-label">
-                  <span>{project}</span>
+                  <span>{project.label}</span>
                   <span aria-hidden="true">↗</span>
                 </div>
               </article>
             );
 
-            return index === 0 ? (
+            return project.href ? (
               <Link
-                aria-label="View the Edge AI Smart Meter Reading System project"
+                aria-label={project.accessibleName}
                 className="project-preview-link"
-                href="/projects#edge-ai-meter"
-                key={project}
+                href={project.href}
+                key={project.label}
               >
                 {card}
               </Link>

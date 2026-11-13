@@ -29,14 +29,27 @@ const projects = [
     ],
   },
   {
-    id: "project-two",
-    eyebrow: "02 / PROJECT",
-    title: "A new project is on the way.",
+    id: "lifelink",
+    eyebrow: "02 / DJANGO · FULL-STACK DEMO",
+    title: "LifeLink — Blood Donation Coordination Demo",
+    displayTitle: "LifeLink",
     summary:
-      "A space for another engineering case study, with the problem, design decisions, and demo collected in one place.",
-    technologies: ["COMING SOON"],
-    visual: "systems",
-    links: [],
+      "A Django app for exploring fictional blood donors, requests, blood banks, and camps by blood group and city.",
+    highlights: [
+      "Donor search by blood group and city",
+      "Account-gated donor and request forms",
+      "City-based centres, camps, and map",
+    ],
+    technologies: ["Python", "Django", "SQLite", "HTML/CSS", "OpenStreetMap"],
+    disclaimer:
+      "Demo only: fictional records. Local submissions reset when the server stops.",
+    visual: "lifelink",
+    links: [
+      {
+        label: "View source code ↗",
+        href: "https://github.com/tankify/blood-bank-management",
+      },
+    ],
   },
   {
     id: "project-three",
@@ -200,7 +213,7 @@ export default function ProjectCarousel() {
               aria-hidden={index !== activeIndex}
               aria-label={`${index + 1} of ${projects.length}: ${project.title}`}
               aria-roledescription="slide"
-              className={`project-slide project-slide--${position}${project.id === "edge-ai-meter" ? " project-slide--edge-ai" : ""}`}
+              className={`project-slide project-slide--${position}${project.id === "edge-ai-meter" ? " project-slide--edge-ai" : project.id === "lifelink" ? " project-slide--lifelink" : ""}`}
               inert={index !== activeIndex}
               id={project.id}
               key={project.id}
@@ -237,6 +250,29 @@ export default function ProjectCarousel() {
                         <span>TRANSMIT</span>
                       </div>
                     </>
+                  ) : project.visual === "lifelink" ? (
+                    <>
+                      <div className="lifelink-photo-frame">
+                        <Image
+                          alt=""
+                          className="lifelink-project-photo"
+                          fill
+                          sizes="(max-width: 760px) 90vw, 45vw"
+                          src="/lifelink-home.png"
+                        />
+                      </div>
+                      <div className="lifelink-logo-badge">
+                        <Image
+                          alt=""
+                          height={134}
+                          src="/lifelink-logo.png"
+                          width={296}
+                        />
+                      </div>
+                      <div className="lifelink-artwork-footer">
+                        PEOPLE HELPING PEOPLE · DJANGO DEMO
+                      </div>
+                    </>
                   ) : (
                     <>
                       <div className="placeholder-artwork-label">
@@ -261,11 +297,23 @@ export default function ProjectCarousel() {
                   <h2>{"displayTitle" in project ? project.displayTitle : project.title}</h2>
                   <p className="project-slide-summary">{project.summary}</p>
 
+                  {"highlights" in project && (
+                    <ul className="project-highlights" aria-label="Project features">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  )}
+
                   <ul className="project-tech-list" aria-label="Technologies used">
                     {project.technologies.map((technology) => (
                       <li key={technology}>{technology}</li>
                     ))}
                   </ul>
+
+                  {"disclaimer" in project && (
+                    <p className="project-demo-note">{project.disclaimer}</p>
+                  )}
 
                   {project.links.length > 0 ? (
                     <div className="project-resource-links">
