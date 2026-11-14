@@ -1809,10 +1809,11 @@ a:focus-visible {
 
 .project-tech-list li {
   padding: 7px 10px;
-  border: 1px solid #444;
+  border: 1px solid rgba(216, 255, 62, 0.52);
   border-radius: 30px;
-  color: #d5d5d0;
+  color: var(--accent);
   font-size: 10px;
+  text-transform: uppercase;
 }
 
 .project-resource-links {
