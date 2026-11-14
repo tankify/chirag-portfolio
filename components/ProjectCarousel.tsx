@@ -72,6 +72,7 @@ export default function ProjectCarousel() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
   const [stageHeight, setStageHeight] = useState<number | null>(null);
   const touchStartX = useRef<number | null>(null);
+  const carouselStageRef = useRef<HTMLDivElement>(null);
   const activeCardRef = useRef<HTMLDivElement>(null);
 
   const isPaused =
@@ -103,6 +104,75 @@ export default function ProjectCarousel() {
 
     return () => {
       document.removeEventListener("visibilitychange", updateVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
+    const stage = carouselStageRef.current;
+    if (!stage) return;
+
+    let accumulatedDelta = 0;
+    let gestureHandled = false;
+    let gestureDirection = 0;
+    let gestureEndTimer = 0;
+
+    const resetGesture = () => {
+      accumulatedDelta = 0;
+      gestureHandled = false;
+      gestureDirection = 0;
+    };
+
+    const handleWheel = (event: WheelEvent) => {
+      // Keep browser zoom gestures intact; treat vertical or horizontal trackpad
+      // scrolling over the carousel as moving between projects.
+      if (event.ctrlKey) return;
+
+      const rawDelta =
+        Math.abs(event.deltaY) >= Math.abs(event.deltaX)
+          ? event.deltaY
+          : event.deltaX;
+      if (rawDelta === 0) return;
+
+      const deltaScale =
+        event.deltaMode === WheelEvent.DOM_DELTA_LINE
+          ? 16
+          : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+            ? stage.clientHeight
+            : 1;
+      const delta = rawDelta * deltaScale;
+      const direction = Math.sign(delta);
+
+      event.preventDefault();
+      window.clearTimeout(gestureEndTimer);
+
+      // A quick reversal is a new navigation gesture, not trackpad momentum.
+      if (gestureDirection !== 0 && direction !== gestureDirection) {
+        accumulatedDelta = 0;
+        gestureHandled = false;
+      }
+      gestureDirection = direction;
+
+      if (!gestureHandled) {
+        accumulatedDelta += delta;
+
+        if (Math.abs(accumulatedDelta) >= 55) {
+          const step = Math.sign(accumulatedDelta);
+          gestureHandled = true;
+          setActiveIndex((current) =>
+            (current + step + projects.length) % projects.length,
+          );
+        }
+      }
+
+      // Wait for the trackpad momentum to settle before accepting another
+      // step from the same direction; reverse scrolling remains immediate.
+      gestureEndTimer = window.setTimeout(resetGesture, 50);
+    };
+
+    stage.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      stage.removeEventListener("wheel", handleWheel);
+      window.clearTimeout(gestureEndTimer);
     };
   }, []);
 
@@ -177,6 +247,7 @@ export default function ProjectCarousel() {
     >
       <div
         className="project-carousel-stage"
+        ref={carouselStageRef}
         style={stageHeight ? { height: `${stageHeight}px` } : undefined}
         onTouchStart={(event) => {
           touchStartX.current = event.changedTouches[0]?.clientX ?? null;
