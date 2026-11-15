@@ -1926,6 +1926,14 @@ a:focus-visible {
   letter-spacing: 1px;
 }
 
+.carousel-gesture-hint {
+  color: #777870;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .projects-page-footer {
   display: flex;
   justify-content: space-between;
@@ -2097,6 +2105,12 @@ a:focus-visible {
   .project-carousel-controls {
     flex-wrap: wrap;
     gap: 12px;
+  }
+
+  .carousel-gesture-hint {
+    flex-basis: 100%;
+    order: 1;
+    text-align: center;
   }
 
   .projects-page-footer {

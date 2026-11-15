@@ -441,6 +441,8 @@ export default function ProjectCarousel() {
           {String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
         </span>
 
+        <span className="carousel-gesture-hint">Scroll or swipe to explore</span>
+
         <button
           aria-label="Next project"
           className="carousel-arrow"
