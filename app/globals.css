@@ -311,11 +311,42 @@ a:focus-visible {
 
 .copyright {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   border-top: 1px solid var(--border);
   padding-top: 25px;
   margin-top: 60px;
   color: var(--muted);
   font-size: 11px;
+}
+
+.backend-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.backend-status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e0b548;
+}
+
+.backend-status-indicator--online {
+  background: #d8ff3e;
+  box-shadow: 0 0 8px rgba(216, 255, 62, 0.45);
+}
+
+.backend-status-indicator--offline {
+  background: #e65a72;
 }
 
 /* Responsive */

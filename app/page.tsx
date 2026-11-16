@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BackendStatus from "@/components/BackendStatus";
 import CopyEmailButton from "@/components/CopyEmailButton";
 
 const links = [
@@ -240,7 +241,10 @@ export default function Home() {
           )}
         </div>
 
-        <p className="copyright">© 2026 Chirag Tank</p>
+        <p className="copyright">
+          <span>© 2026 Chirag Tank</span>
+          <BackendStatus />
+        </p>
       </footer>
     </main>
   );
