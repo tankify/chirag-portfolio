@@ -19,7 +19,7 @@ export default function BackendStatus() {
 
     fetch(`${apiBaseUrl}/api/health`, {
       cache: "no-store",
-      signal: controller.signal,
+      signal: AbortSignal.any([controller.signal, AbortSignal.timeout(5000)]),
     })
       .then(async (response) => {
         if (!response.ok) throw new Error("Health check failed");
