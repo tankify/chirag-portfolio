@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
@@ -10,8 +11,8 @@ const projects = [
     title: "Edge AI Smart Meter Reading System",
     displayTitle: "Smart Meter Reading System",
     summary:
-      "An ESP32-CAM uses YOLOv7 and OCR to read electricity meters at the edge, then sends readings over LoRa.",
-    technologies: ["ESP32-CAM", "YOLOv7", "OpenCV", "OCR", "LoRa"],
+      "Explored YOLOv7 with OCR and a quantized FOMO model for edge meter reading, with results sent over LoRa.",
+    technologies: ["ESP32-CAM", "YOLOv7", "FOMO", "MobileNetV2", "INT8", "OCR", "LoRa"],
     visual: "meter",
     links: [
       {
@@ -302,7 +303,7 @@ export default function ProjectCarousel() {
                     <>
                       <div className="meter-artwork-heading">
                         <span>EDGE COMPUTER VISION</span>
-                        <span>ESP32-CAM / YOLOv7</span>
+                        <span>FOMO / YOLOv7 + OCR</span>
                       </div>
                       <div className="meter-photo-frame">
                         <Image
@@ -388,6 +389,11 @@ export default function ProjectCarousel() {
 
                   {project.links.length > 0 ? (
                     <div className="project-resource-links">
+                      {project.id === "edge-ai-meter" && index === activeIndex && (
+                        <Link href="/projects/edge-ai-meter">
+                          Technical deep dive ↗
+                        </Link>
+                      )}
                       {index === activeIndex &&
                         project.links.map((link) => (
                           <a
