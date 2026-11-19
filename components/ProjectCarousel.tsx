@@ -394,6 +394,11 @@ export default function ProjectCarousel() {
                           Technical deep dive ↗
                         </Link>
                       )}
+                      {project.id === "lifelink" && index === activeIndex && (
+                        <Link href="/projects/lifelink">
+                          Technical deep dive ↗
+                        </Link>
+                      )}
                       {index === activeIndex &&
                         project.links.map((link) => (
                           <a

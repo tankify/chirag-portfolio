@@ -2249,6 +2249,163 @@ a:focus-visible {
   justify-content: flex-end;
 }
 
+.lifelink-case-study {
+  --lifelink-accent: #f0526c;
+}
+
+.lifelink-label,
+.lifelink-case-study .case-study-tags span,
+.lifelink-case-study .case-study-index,
+.lifelink-case-study .lifelink-capabilities article > span,
+.lifelink-case-study .lifelink-model-grid article > span {
+  color: var(--lifelink-accent);
+}
+
+.lifelink-case-study .case-study-tags span {
+  border-color: rgba(240, 82, 108, 0.42);
+}
+
+.lifelink-case-photo {
+  border-color: rgba(240, 82, 108, 0.5);
+  background: #fbf7f5;
+}
+
+.lifelink-case-photo img {
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.lifelink-source-link {
+  display: inline-block;
+  margin-top: 26px;
+  border-bottom: 1px solid rgba(240, 82, 108, 0.6);
+  padding-bottom: 6px;
+  color: var(--lifelink-accent);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.lifelink-capabilities {
+  display: grid;
+  gap: 0;
+}
+
+.lifelink-capabilities article {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.lifelink-capabilities article:first-child {
+  padding-top: 0;
+}
+
+.lifelink-capabilities article > span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+
+.lifelink-capabilities h3,
+.lifelink-engineering-grid h3 {
+  font-size: 19px;
+  letter-spacing: -0.035em;
+}
+
+.lifelink-capabilities p,
+.lifelink-engineering-grid p,
+.lifelink-data-intro,
+.lifelink-model-grid p {
+  margin-top: 9px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.lifelink-data-intro {
+  max-width: 420px;
+  margin-top: 18px;
+}
+
+.lifelink-model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lifelink-model-grid article {
+  min-height: 150px;
+  padding: 22px;
+  border: 1px solid rgba(240, 82, 108, 0.28);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(240, 82, 108, 0.055), #151515 65%);
+}
+
+.lifelink-model-grid article > span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.lifelink-model-grid h3 {
+  margin-top: 18px;
+  font-size: 21px;
+  letter-spacing: -0.04em;
+}
+
+.lifelink-engineering-section {
+  grid-template-columns: 1fr;
+}
+
+.lifelink-engineering-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.lifelink-engineering-grid article {
+  padding: 24px;
+  border-top: 1px solid rgba(240, 82, 108, 0.55);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.lifelink-demo-boundary {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.35fr) minmax(0, 1fr);
+  gap: 32px;
+  margin: 64px 0 0;
+  padding: clamp(24px, 5vw, 52px);
+  border: 1px solid rgba(240, 82, 108, 0.42);
+  border-radius: 16px;
+  background: linear-gradient(115deg, rgba(240, 82, 108, 0.09), rgba(21, 21, 21, 0.9) 55%);
+}
+
+.lifelink-boundary-mark {
+  color: var(--lifelink-accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.lifelink-demo-boundary h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -0.05em;
+}
+
+.lifelink-demo-boundary p {
+  max-width: 820px;
+  margin-top: 14px;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.lifelink-case-links .project-resource-links a {
+  color: var(--lifelink-accent);
+  border-color: rgba(240, 82, 108, 0.6);
+}
+
 @media (max-width: 760px) {
   .case-study-hero {
     grid-template-columns: 1fr;
@@ -2304,6 +2461,16 @@ a:focus-visible {
 
   .case-study-links .project-resource-links {
     justify-content: flex-start;
+  }
+
+  .lifelink-engineering-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lifelink-demo-boundary {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 42px;
   }
 }
 
