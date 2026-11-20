@@ -34,6 +34,10 @@ export default function EdgeAiMeterPage() {
         </div>
       </nav>
 
+      <Link href="/projects" className="case-study-back-link">
+        ← Back to all projects
+      </Link>
+
       <article>
         <header className="case-study-hero">
           <div className="case-study-hero-copy">

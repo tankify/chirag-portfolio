@@ -2006,6 +2006,18 @@ a:focus-visible {
 
 /* Edge AI project case study */
 
+.case-study-back-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--accent);
+  font-size: 12px;
+  transition: opacity 180ms ease;
+}
+
+.case-study-back-link:hover {
+  opacity: 0.72;
+}
+
 .case-study-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
