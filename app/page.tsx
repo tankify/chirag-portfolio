@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BackendStatus from "@/components/BackendStatus";
 import CopyEmailButton from "@/components/CopyEmailButton";
+import ContactForm from "@/components/ContactForm";
 
 const links = [
   {
@@ -210,16 +211,21 @@ export default function Home() {
         </Link>
       </section>
 
-      <footer id="contact" className="footer">
-        <div className="footer-message">
-          <span className="section-label">03 / CONTACT</span>
+      <section id="contact" className="contact-section">
+        <div className="contact-section-heading">
+          <span className="section-label">03 / GET IN TOUCH</span>
           <h2>
-            Have something
+            Let&apos;s start a
             <br />
-            interesting in mind?
+            conversation.
           </h2>
-          <a href="mailto:tankchirag22@gmail.com">Let&apos;s talk ↗</a>
+          <p>Have a question, an idea, or just want to say hello? Send me a message.</p>
         </div>
+
+        <ContactForm />
+      </section>
+
+      <footer className="footer">
 
         <div className="footer-links">
           {links.map((link) =>
