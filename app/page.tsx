@@ -26,7 +26,7 @@ const links = [
 const projectPreviews = [
   {
     label: "EDGE AI / SMART METER",
-    href: "/projects#edge-ai-meter",
+    href: "/projects#ai-projects",
     accessibleName: "View the Edge AI Smart Meter Reading System project",
     visual: "meter",
   },
@@ -136,8 +136,73 @@ export default function Home() {
         </p>
       </section>
 
+      <section id="ai-work" className="ai-work-section">
+        <div className="ai-work-heading">
+          <span className="section-label">02 / AI IN PRACTICE</span>
+          <h2>AI across the work I do.</h2>
+          <p>
+            Applied in teams. Explored through projects. Here&apos;s a snapshot
+            of both.
+          </p>
+        </div>
+
+        <div className="ai-work-layout">
+          <div className="ai-work-experience">
+            <span className="ai-work-column-label">PROFESSIONAL WORK</span>
+            <article className="ai-work-item">
+              <div className="ai-work-item-meta">
+                <span>SALESFORCE · SOFTWARE DEVELOPMENT ENGINEER</span>
+                <span>JUL 2024 — SEP 2025</span>
+              </div>
+              <h3>Agentic AI action workflow</h3>
+              <p>
+                Delivered a full-stack workflow that reduced a manual process
+                from 20+ clicks to 2–4.
+              </p>
+            </article>
+            <article className="ai-work-item">
+              <div className="ai-work-item-meta">
+                <span>VISA · SOFTWARE DEVELOPMENT ENGINEER</span>
+                <span>NOV 2025 — PRESENT</span>
+              </div>
+              <h3>AI-powered product recommendations</h3>
+              <p>
+                Developed client clustering and peer-matching capabilities for
+                explainable payment benchmarking.
+              </p>
+            </article>
+          </div>
+
+          <article className="ai-work-project">
+            <div className="ai-work-column-label">ACADEMIC PROJECT · IIT (BHU)</div>
+            <div className="ai-work-project-image">
+              <Image
+                alt="ESP32-CAM prototype mounted in front of an electricity meter"
+                fill
+                sizes="(max-width: 760px) 90vw, 38vw"
+                src="/smart-meter-project.png"
+              />
+            </div>
+            <div className="ai-work-project-copy">
+              <h3>Edge AI Smart Meter Reading</h3>
+              <p>
+                Computer vision and compact models on an ESP32-CAM, with
+                readings sent over LoRa.
+              </p>
+              <div className="ai-work-tags" aria-label="Project technologies">
+                <span>FOMO</span>
+                <span>YOLOv7</span>
+                <span>OCR</span>
+                <span>ESP32-CAM</span>
+              </div>
+              <Link href="/projects/edge-ai-meter">Technical deep dive ↗</Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="projects" className="projects-section">
-        <span className="section-label">02 / SELECTED WORK</span>
+        <span className="section-label">03 / SELECTED WORK</span>
         <h2>Things I&apos;ve built.</h2>
         <p className="projects-intro">
           Interesting problems deserve thoughtful solutions.
@@ -213,7 +278,7 @@ export default function Home() {
 
       <section id="contact" className="contact-section">
         <div className="contact-section-heading">
-          <span className="section-label">03 / GET IN TOUCH</span>
+          <span className="section-label">04 / GET IN TOUCH</span>
           <h2>
             Let&apos;s start a
             <br />
