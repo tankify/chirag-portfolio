@@ -84,7 +84,7 @@ export default function Home() {
 
           <div className="hero-actions">
             <a href="#ai-work" className="primary-button">
-              Explore my work <span>↘</span>
+              Explore AI work <span>↘</span>
             </a>
 
             <Link href="/about" className="secondary-button">
