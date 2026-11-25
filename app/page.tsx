@@ -79,7 +79,7 @@ export default function Home() {
 
           <p className="intro">
             Hi, I&apos;m Chirag. I build software, explore AI, and turn complex
-            problems into elegant solutions.
+            problems into reliable systems.
           </p>
 
           <div className="hero-actions">
