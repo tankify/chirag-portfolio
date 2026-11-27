@@ -83,7 +83,7 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <a href="#ai-work" className="primary-button">
+            <a aria-label="Explore Chirag's AI work" href="#ai-work" className="primary-button">
               Explore my AI work <span>↘</span>
             </a>
 
