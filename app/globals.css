@@ -1055,16 +1055,24 @@ a:focus-visible {
 }
 
 .github-mark {
-  font-size: 2rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #d8ff3e;
+  white-space: nowrap;
 }
 
 .about-github h2 {
   font-size: 0.9rem;
 }
 
-.about-github a {
+.about-profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.about-profile-links a {
   color: #d8ff3e;
   font-size: 0.8rem;
 }

@@ -109,16 +109,18 @@ export default function AboutPage() {
         </div>
 
         <div className="about-github">
-          <span className="github-mark">GH</span>
+          <span className="github-mark">GH / LC</span>
 
           <div>
             <h2>LET'S BUILD SOMETHING.</h2>
-            <Link
-              href="https://github.com/tankify"
-              target="_blank"
-            >
-              Explore my GitHub ↗
-            </Link>
+            <div className="about-profile-links">
+              <Link href="https://github.com/tankify" target="_blank" rel="noopener noreferrer">
+                Explore my GitHub ↗
+              </Link>
+              <Link href="https://leetcode.com/u/Chirag_T002/" target="_blank" rel="noopener noreferrer">
+                Explore my LeetCode profile ↗
+              </Link>
+            </div>
           </div>
         </div>
       </section>
